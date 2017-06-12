@@ -56,7 +56,8 @@ public class Exercises {
 		//problem here, int takes values up to a certain point (32-bit), and that point gets reached at about 12!
 		//use big integer class
 		int fact = num;
-		if(num != 0){for(int i = num-1; i > 0; i--){
+		if(num != 0){
+			for(int i = num-1; i > 0; i--){
 				fact = fact * i;
 			}
 		}
