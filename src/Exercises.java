@@ -1,9 +1,74 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Exercises {
 
 	public static void main(String[] args) {
 		System.out.println(russianMultiplication(57,86));
 		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
 
+	}
+	
+	//
+	////
+	//////EXERCISE 1
+	////
+	//
+	public static void exercise(){
+		Integer[] array = {6,-1,14,7,3,21,-5};
+		//THE HARD WAY
+		Integer min = null;
+		Integer max = null;
+
+		for(int i = 0; i < array.length; i++){
+			if(i == 0){
+				min = array[i];
+				max = array[i];
+			}else{
+				if(array[i] < min){
+					min = array[i];
+				}else if(array[i] > max){
+					max = array[i];
+				}
+			}
+		}
+		//END HARD WAY
+		//EASY WAY
+		Arrays.sort(array);
+		min = array[0];
+		max = array[array.length - 1];
+
+		//CURIOSITY
+		Arrays.sort(array, Collections.reverseOrder());
+		//END EASY WAY
+	}
+	
+
+	//
+	////
+	//////EXERCISE 2
+	////
+	//
+	public static int factorial(int num){
+		//problem here, int takes values up to a certain point (32-bit), and that point gets reached at about 12!
+		//use big integer class
+		int fact = num;
+		if(num != 0){for(int i = num-1; i > 0; i--){
+				fact = fact * i;
+			}
+		}
+		else{
+			fact = 1;
+		}
+		return fact;
+	}
+
+	public static int fact2(int num){
+		if(num == 1 || num == 0){
+			return 1;
+		}else{
+			return num*fact2(--num);
+		}
 	}
 	
 	
