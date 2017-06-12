@@ -1,12 +1,15 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Exercises {
 
 	public static void main(String[] args) {
 		System.out.println(russianMultiplication(57,86));
 		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
-
+		fibonacci();
 	}
 	
 	//
@@ -101,6 +104,39 @@ public class Exercises {
 			words[i] = words[i].substring(0,1).toUpperCase() + words[i].substring(1);
 		}
 		return String.join(" ", words);
+	}
+	
+	public static void fibonacci(){
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Por favor indique quantos números da sequência de Fibonacci quer:");
+			Integer length = null;
+			while (true) {
+				String stored = scanner.nextLine();
+				try {
+					length = Integer.parseInt(stored);
+					break;
+				} catch (NumberFormatException e) {
+					System.out.println("Por favor escolha uma opção válida!");
+				}
+			}
+			if(length!=0){
+				ArrayList<Integer> fibonacciNumbers = new ArrayList<>();
+				double sum = 0;
+				for (int i = 0; i < length; i++) {
+					if (i > 1) {
+						fibonacciNumbers.add(fibonacciNumbers.get(i - 2) + fibonacciNumbers.get(i - 1));
+					} else {
+						fibonacciNumbers.add(i);
+					}
+					sum = sum + fibonacciNumbers.get(i);
+				}
+				System.out.println("Os números são: " + fibonacciNumbers.stream().map(Object::toString).collect(Collectors.joining(", ")));
+				System.out.println(String.format("A média é: %.2f", sum/length));
+			}
+			else{
+				System.out.println("Não há sequências com 0 elementos.");
+			}
+		}
 	}
 
 }
