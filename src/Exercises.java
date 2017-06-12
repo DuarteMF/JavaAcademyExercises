@@ -121,17 +121,17 @@ public class Exercises {
 			}
 			if(length!=0){
 				ArrayList<Integer> fibonacciNumbers = new ArrayList<>();
-				double sum = 0;
+				int sum = 0;
 				for (int i = 0; i < length; i++) {
 					if (i > 1) {
 						fibonacciNumbers.add(fibonacciNumbers.get(i - 2) + fibonacciNumbers.get(i - 1));
 					} else {
 						fibonacciNumbers.add(i);
 					}
-					sum = sum + fibonacciNumbers.get(i);
+					sum += fibonacciNumbers.get(i);
 				}
 				System.out.println("Os números são: " + fibonacciNumbers.stream().map(Object::toString).collect(Collectors.joining(", ")));
-				System.out.println(String.format("A média é: %.2f", sum/length));
+				System.out.println(String.format("A média é: %.2f", (double)sum/length));
 			}
 			else{
 				System.out.println("Não há sequências com 0 elementos.");
