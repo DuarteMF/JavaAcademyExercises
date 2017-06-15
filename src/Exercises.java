@@ -1,15 +1,31 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Exercises {
-
+	
 	public static void main(String[] args) {
-		System.out.println(russianMultiplication(57,86));
-		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
-		fibonacci();
+//		System.out.println(russianMultiplication(57,86));
+//		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
+//		fibonacci();
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Por favor indique a idade de uma pessoa em segundos:");
+			Long age = null;
+			while (true) {
+				String stored = scanner.nextLine();
+				System.out.println(stored);
+				try {
+					age = Long.parseLong(stored);
+					planetaryAge(age);
+					break;
+				} catch (NumberFormatException e) {
+					System.out.println("Por favor escolha uma opção válida!");
+				}
+			}
+		}
 	}
 	
 	//
@@ -143,5 +159,23 @@ public class Exercises {
 			}
 		}
 	}
+	public static final LinkedHashMap<String,Double> sideralPeriodPerPlanet = new LinkedHashMap<>();
+	static{
+		sideralPeriodPerPlanet.put("Mercúrio", 0.241);
+		sideralPeriodPerPlanet.put("Vénus", 0.615);
+		sideralPeriodPerPlanet.put("Terra", 1.000);
+		sideralPeriodPerPlanet.put("Marte", 1.881);
+		sideralPeriodPerPlanet.put("Júpiter", 11.86);
+		sideralPeriodPerPlanet.put("Saturno", 29.46);
+		sideralPeriodPerPlanet.put("Urano", 84.81);
+		sideralPeriodPerPlanet.put("Neptuno", 164.8);
+	}
 
+	public static void planetaryAge(Long earthAgeInSeconds){
+		Long earthYearInSeconds = (long) (365*24*60*60);
+		double earthAgeInYears = (double) (earthAgeInSeconds/earthYearInSeconds);
+		for(String planetName: sideralPeriodPerPlanet.keySet()){
+			System.out.println(String.format("A pessoa teria %.3f ano(s) no planeta %s", (double) (earthAgeInYears/sideralPeriodPerPlanet.get(planetName)), planetName));
+		}
+	}
 }
