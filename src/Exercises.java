@@ -8,18 +8,17 @@ import java.util.stream.Collectors;
 public class Exercises {
 	
 	public static void main(String[] args) {
-//		System.out.println(russianMultiplication(57,86));
-//		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
+		System.out.println(russianMultiplication(57,86));
+		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
 //		fibonacci();
 		try (Scanner scanner = new Scanner(System.in)) {
 			System.out.println("Por favor indique a idade de uma pessoa em segundos:");
 			Long age = null;
 			while (true) {
 				String stored = scanner.nextLine();
-				System.out.println(stored);
 				try {
 					age = Long.parseLong(stored);
-					planetaryAge(age);
+					planetaryAge2(age);
 					break;
 				} catch (NumberFormatException e) {
 					System.out.println("Por favor escolha uma opção válida!");
@@ -171,11 +170,47 @@ public class Exercises {
 		sideralPeriodPerPlanet.put("Neptuno", 164.8);
 	}
 
+	
 	public static void planetaryAge(Long earthAgeInSeconds){
 		Long earthYearInSeconds = (long) (365*24*60*60);
 		double earthAgeInYears = (double) (earthAgeInSeconds/earthYearInSeconds);
 		for(String planetName: sideralPeriodPerPlanet.keySet()){
 			System.out.println(String.format("A pessoa teria %.3f ano(s) no planeta %s", (double) (earthAgeInYears/sideralPeriodPerPlanet.get(planetName)), planetName));
 		}
+	}
+	
+	public static void planetaryAge2(Long earthAgeInSeconds){
+		Long earthYearInSeconds = (long) (365*24*60*60);
+		double earthAgeInYears = (double) (earthAgeInSeconds/earthYearInSeconds);
+		for(Planet p: Planet.values()){
+			System.out.println(String.format("A pessoa teria %.3f ano(s) no planeta %s", (double) (earthAgeInYears/p.sideralPeriod()), p.Name()));
+		}
+	}
+}
+
+enum Planet{
+	MERCURY("Mercúrio", 0.241),
+	VENUS("Vénus", 0.615),
+	EARTH("Terra", 1.000), 
+	MARS("Marte", 1.881), 
+	JUPITER("Júpiter", 11.86), 
+	SATURN("Saturno", 29.46), 
+	URANUS("Urano", 84.81), 
+	NEPTUNE("Neptuno", 164.8);
+	
+	private final String name;
+	private final double sideralPeriod;
+	
+	Planet(String name, double sideralPeriod){
+		this.name = name;
+		this.sideralPeriod = sideralPeriod;
+	}
+	
+	public String Name(){
+		return name;
+	}
+	
+	public double sideralPeriod(){
+		return sideralPeriod;
 	}
 }
