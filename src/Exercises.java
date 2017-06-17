@@ -1,3 +1,6 @@
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,7 +28,8 @@ public class Exercises {
 //				}
 //			}
 //		}
-		palyndromeString("te,% et");
+//		palyndromeString("te,% et");
+		isItASunday();
 	}
 	
 	//
@@ -203,6 +207,15 @@ public class Exercises {
 			System.out.println("Sim, o texto inserido é um palíndromo");
 		}else{
 			System.out.println("Não, o texto não é um palíndromo");
+		}
+	}
+	
+	public static void isItASunday(){
+		DayOfWeek d = LocalDate.parse("2017-01-10").getDayOfWeek();
+		if(d.equals(DayOfWeek.SUNDAY)){
+			System.out.println("O dia que indicou é um Domingo.");
+		}else{
+			System.out.println(String.format("O dia que indicou não é Domingo. O próximo Domingo é em %s",LocalDate.parse("2017-01-10").with(TemporalAdjusters.next(DayOfWeek.SUNDAY))));	
 		}
 	}
 }
