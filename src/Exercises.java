@@ -8,23 +8,24 @@ import java.util.stream.Collectors;
 public class Exercises {
 	
 	public static void main(String[] args) {
-		System.out.println(russianMultiplication(57,86));
-		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
-//		fibonacci();
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.println("Por favor indique a idade de uma pessoa em segundos:");
-			Long age = null;
-			while (true) {
-				String stored = scanner.nextLine();
-				try {
-					age = Long.parseLong(stored);
-					planetaryAge2(age);
-					break;
-				} catch (NumberFormatException e) {
-					System.out.println("Por favor escolha uma opção válida!");
-				}
-			}
-		}
+//		System.out.println(russianMultiplication(57,86));
+//		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
+////		fibonacci();
+//		try (Scanner scanner = new Scanner(System.in)) {
+//			System.out.println("Por favor indique a idade de uma pessoa em segundos:");
+//			Long age = null;
+//			while (true) {
+//				String stored = scanner.nextLine();
+//				try {
+//					age = Long.parseLong(stored);
+//					planetaryAge2(age);
+//					break;
+//				} catch (NumberFormatException e) {
+//					System.out.println("Por favor escolha uma opção válida!");
+//				}
+//			}
+//		}
+		palyndromeString("te,% et");
 	}
 	
 	//
@@ -184,6 +185,24 @@ public class Exercises {
 		double earthAgeInYears = (double) (earthAgeInSeconds/earthYearInSeconds);
 		for(Planet p: Planet.values()){
 			System.out.println(String.format("A pessoa teria %.3f ano(s) no planeta %s", (double) (earthAgeInYears/p.sideralPeriod()), p.Name()));
+		}
+	}
+	
+	public static void palyndromeString(String text){
+		String text2 = text.replaceAll("\\W","").toLowerCase();
+		int length = text2.length();
+		String firstHalf = text2.substring(0, Math.floorDiv(length, 2));
+		String secondHalf = null;
+		if(length % 2 ==1){
+			secondHalf = text2.substring(Math.floorDiv(length, 2)+1);
+		}else{
+			secondHalf = text2.substring(Math.floorDiv(length, 2));
+		}
+		String invertedSecondHalf = new StringBuilder(secondHalf).reverse().toString();
+		if(firstHalf.equals(invertedSecondHalf)){
+			System.out.println("Sim, o texto inserido é um palíndromo");
+		}else{
+			System.out.println("Não, o texto não é um palíndromo");
 		}
 	}
 }
