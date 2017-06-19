@@ -28,8 +28,18 @@ public class Exercises {
 //				}
 //			}
 //		}
-//		palyndromeString("te,% et");
-		isItASunday();
+		long init = System.nanoTime();
+		palyndromeString("Socorram-me, subi no onibus em Marrocos");
+		long end =System.nanoTime();
+		System.out.printf("%.3f ms", (double) (end-init)/1000);
+		System.out.println();
+		
+		init = System.nanoTime();
+		palyndromeString2("Socorram-me, subi no onibus em Marrocos");
+		end =System.nanoTime();
+		System.out.printf("%.3f ms", (double) (end-init)/1000);
+		System.out.println();
+//		isItASunday();
 	}
 	
 	//
@@ -208,6 +218,18 @@ public class Exercises {
 		}else{
 			System.out.println("Não, o texto não é um palíndromo");
 		}
+	}
+	
+	public static void palyndromeString2(String text){
+		String text2 = text.replaceAll("\\W","").toLowerCase();
+		int length = text2.length();
+		for(int i = 0; i < length/2; i++){
+			if(text2.charAt(i) != text2.charAt(length - i - 1)){
+				System.out.println("Não, o texto não é um palíndromo");
+				break;
+			}
+		}
+		System.out.println("Sim, o texto inserido é um palíndromo");
 	}
 	
 	public static void isItASunday(){
