@@ -28,18 +28,19 @@ public class Exercises {
 //				}
 //			}
 //		}
-		long init = System.nanoTime();
-		palyndromeString("Socorram-me, subi no onibus em Marrocos");
-		long end =System.nanoTime();
-		System.out.printf("%.3f ms", (double) (end-init)/1000);
-		System.out.println();
-		
-		init = System.nanoTime();
-		palyndromeString2("Socorram-me, subi no onibus em Marrocos");
-		end =System.nanoTime();
-		System.out.printf("%.3f ms", (double) (end-init)/1000);
-		System.out.println();
+//		long init = System.nanoTime();
+//		palyndromeString("Socorram-me, subi no onibus em Marrocos");
+//		long end =System.nanoTime();
+//		System.out.printf("%.3f ms", (double) (end-init)/1000);
+//		System.out.println();
+//		
+//		init = System.nanoTime();
+//		palyndromeString2("Socorram-me, subi no onibus em Marrocos");
+//		end =System.nanoTime();
+//		System.out.printf("%.3f ms", (double) (end-init)/1000);
+//		System.out.println();
 //		isItASunday();
+		fizzBuzz(45,40);
 	}
 	
 	//
@@ -238,6 +239,25 @@ public class Exercises {
 			System.out.println("O dia que indicou é um Domingo.");
 		}else{
 			System.out.println(String.format("O dia que indicou não é Domingo. O próximo Domingo é em %s",LocalDate.parse("2017-01-10").with(TemporalAdjusters.next(DayOfWeek.SUNDAY))));	
+		}
+	}
+	
+	public static void fizzBuzz(int x, int y){
+		if ((x % 3 != 0) && (x % 5 != 0)) {
+			System.out.println(x);
+		} else if ((x % 3 == 0) && (x % 5 != 0)) {
+			System.out.println("Fizz");
+		} else if ((x % 3 != 0) && (x % 5 == 0)) {
+			System.out.println("Buzz");
+		} else {
+			System.out.println("FizzBuzz");
+		}
+		if (x != y) {
+			if (x < y) {
+				fizzBuzz(x + 1, y);
+			} else if (x > y) {
+				fizzBuzz(x - 1, y);
+			}
 		}
 	}
 }
