@@ -40,7 +40,11 @@ public class Exercises {
 //		System.out.printf("%.3f ms", (double) (end-init)/1000);
 //		System.out.println();
 //		isItASunday();
-		fizzBuzz(45,40);
+//		fizzBuzz(45,40);
+		System.out.println("apples".compareTo("banana"));
+		System.out.println("banana".compareTo("pears"));
+		System.out.println("a".compareTo("b"));
+		System.out.println("a".compareTo("c"));
 	}
 	
 	//
