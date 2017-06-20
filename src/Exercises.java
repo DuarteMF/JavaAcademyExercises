@@ -260,6 +260,25 @@ public class Exercises {
 			}
 		}
 	}
+	
+	public static void fizzBuzz2(int x, int y){
+		if(x % 15 == 0){
+			System.out.println("FizzBuzz");
+		}else if(x % 3 == 0){
+			System.out.println("Fizz");
+		}else if(x % 5 ==0){
+			System.out.println("Buzz");
+		}else{
+			System.out.println(x);
+		}
+		if (x != y) {
+			if (x < y) {
+				fizzBuzz(x + 1, y);
+			} else if (x > y) {
+				fizzBuzz(x - 1, y);
+			}
+		}
+	}
 }
 
 enum Planet{
