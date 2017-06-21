@@ -45,6 +45,8 @@ public class Exercises {
 		System.out.println("banana".compareTo("pears"));
 		System.out.println("a".compareTo("b"));
 		System.out.println("a".compareTo("c"));
+		System.out.println("apple".compareTo("apples"));
+		System.out.println("ab".compareTo("ba"));
 	}
 	
 	//
