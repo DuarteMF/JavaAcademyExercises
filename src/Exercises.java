@@ -8,9 +8,14 @@ import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
 public class Exercises {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws java.lang.Exception{
 //		System.out.println(russianMultiplication(57,86));
 //		System.out.println(capitalizeFirstLetterWords("Hello, my fellow students"));
 ////		fibonacci();
@@ -47,8 +52,44 @@ public class Exercises {
 //		System.out.println("a".compareTo("c"));
 //		System.out.println("apple".compareTo("apples"));
 //		System.out.println("ab".compareTo("ba"));
-		System.out.println("a"=="a ".trim());
-		System.out.println("a".equals("a ".trim()));
+//		System.out.println("a"=="a ".trim());
+//		System.out.println("a".equals("a ".trim()));
+		
+		//Exam code question 1
+		System.out.println(likeName("jjjooohhh"));
+		System.out.println(likeName("aaaabbbcccc"));
+		
+		//Exam code question 2
+		System.out.println(notCloseTo21(123));
+		
+	}
+	
+	public static String likeName(String name){
+		int length = name.length();
+		if(length % 3 == 0){
+			String part1 = name.substring(0, length/3);
+			String part2 = name.substring(length/3, 2*length/3);
+			String part3 = name.substring(2*length/3);
+			
+			for(int i = 1; i < length/3; i++){
+				if((part1.charAt(i-1) != part1.charAt(i)) || (part2.charAt(i-1) != part2.charAt(i)) || (part3.charAt(i-1) != part3.charAt(i))){
+					return "Unlike";
+				}
+			}
+			return "Like";
+		}else{
+			return "Unlike";
+		}
+		
+	}
+	
+	public static String notCloseTo21(int number){
+		String numberText = "" + number;
+		if(number % 21 ==0 || numberText.contains("21")){
+			return "A Heartbroken Memory!";
+		}else{
+			return "Still in our heart!";			
+		}
 	}
 	
 	//
