@@ -41,12 +41,14 @@ public class Exercises {
 //		System.out.println();
 //		isItASunday();
 //		fizzBuzz(45,40);
-		System.out.println("apples".compareTo("banana"));
-		System.out.println("banana".compareTo("pears"));
-		System.out.println("a".compareTo("b"));
-		System.out.println("a".compareTo("c"));
-		System.out.println("apple".compareTo("apples"));
-		System.out.println("ab".compareTo("ba"));
+//		System.out.println("apples".compareTo("banana"));
+//		System.out.println("banana".compareTo("pears"));
+//		System.out.println("a".compareTo("b"));
+//		System.out.println("a".compareTo("c"));
+//		System.out.println("apple".compareTo("apples"));
+//		System.out.println("ab".compareTo("ba"));
+		System.out.println("a"=="a ".trim());
+		System.out.println("a".equals("a ".trim()));
 	}
 	
 	//
