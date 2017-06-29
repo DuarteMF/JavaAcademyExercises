@@ -8,12 +8,8 @@ import java.util.LinkedHashMap;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-
 public class Exercises {
+	static Integer i;
 	
 	public static void main(String[] args) throws java.lang.Exception{
 //		System.out.println(russianMultiplication(57,86));
@@ -54,14 +50,19 @@ public class Exercises {
 //		System.out.println("ab".compareTo("ba"));
 //		System.out.println("a"=="a ".trim());
 //		System.out.println("a".equals("a ".trim()));
+//		
+//		//Exam code question 1
+//		System.out.println(likeName("jjjooohhh"));
+//		System.out.println(likeName("aaaabbbcccc"));
+//		
+//		//Exam code question 2
+//		System.out.println(notCloseTo21(123));
 		
-		//Exam code question 1
-		System.out.println(likeName("jjjooohhh"));
-		System.out.println(likeName("aaaabbbcccc"));
-		
-		//Exam code question 2
-		System.out.println(notCloseTo21(123));
-		
+		try{
+			System.out.println(i.compareTo(0));
+		}catch(ArithmeticException | NullPointerException e){
+			System.out.println("Exception");
+		}
 	}
 	
 	public static String likeName(String name){
