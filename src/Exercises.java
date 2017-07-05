@@ -58,11 +58,31 @@ public class Exercises {
 //		//Exam code question 2
 //		System.out.println(notCloseTo21(123));
 		
-		try{
-			System.out.println(i.compareTo(0));
-		}catch(ArithmeticException | NullPointerException e){
-			System.out.println("Exception");
-		}
+//		try{
+//			System.out.println(i.compareTo(0));
+//		}catch(ArithmeticException | NullPointerException e){
+//			System.out.println("Exception");
+//		}
+//		int x = 0;
+//		switch(x){
+//		case 1: System.out.println(1);
+//		case 0: System.out.println(0);
+//		case 2: System.out.println(2);
+//			break;
+//		case 3: System.out.println(3);
+//		default: System.out.println(4);
+//			break;
+//		}
+		int i = 3;
+		int n = 2 * i++;
+		System.out.println(n);
+	}
+	
+	synchronized public final void method(){}
+	
+	public static void throwit(){
+		System.out.println(1);
+		throw new RuntimeException();
 	}
 	
 	public static String likeName(String name){
