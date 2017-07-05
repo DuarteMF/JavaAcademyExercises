@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -72,10 +73,15 @@ public class Exercises {
 //		case 3: System.out.println(3);
 //		default: System.out.println(4);
 //			break;
-//		}
-		int i = 3;
-		int n = 2 * i++;
-		System.out.println(n);
+////		}
+//		int i = 3;
+//		int n = 2 * i++;
+		String test = "teste";
+		char test2 = test.charAt(0);
+		System.out.println(test);
+		char currentCharacter = 'a';
+		System.out.println(currentCharacter);
+		List<Integer> teste3 = new ArrayList<>();
 	}
 	
 	synchronized public final void method(){}
